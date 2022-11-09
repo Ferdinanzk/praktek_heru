@@ -2,15 +2,17 @@
 
 namespace App\Models;
 
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
-class Role extends Model
+class Pengaduan extends Model
 {
     use HasFactory;
-    protected $guarded=[];
+    protected $guarded = [];
 
-    public function permission(){
-        return $this->hasone(Permission::class);
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

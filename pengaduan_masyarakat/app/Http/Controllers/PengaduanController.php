@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use App\Models\Permission;
 
-class PermissionController extends Controller
+use Illuminate\Http\Request;
+use App\Models\Pengaduan;
+
+class PengaduanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +14,7 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        $permissions = Permission::get();
-
-        return view('permiss.index', compact('permissions'));
+        
     }
 
     /**
@@ -25,7 +24,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        return view("permiss.create");
+        return view('pengaduan.create');
     }
 
     /**
@@ -36,16 +35,7 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'role_id'=>'required|unique:permissions',
-            'name'=>'required'
-
-        ]);
-    
-        Permission::create($request->all());
-        return redirect()->route('permiss.create')->with('massage','permission berhasil ditambahakan');
-        
-        
+        //
     }
 
     /**
@@ -67,8 +57,7 @@ class PermissionController extends Controller
      */
     public function edit($id)
     {
-        $permission = Permission::find($id);
-        return view('permiss.edit', compact('permission'));
+        //
     }
 
     /**
@@ -80,16 +69,7 @@ class PermissionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-        
-            'name'=>'required'
-
-        ]);
-
-        $permision = Permission::find($id);
-        $permision->update($request->all());
-        
-        return redirect()->route('permiss.index')->with('massage', ' Permsission  berhasil diUbah  ');
+        //
     }
 
     /**
@@ -100,7 +80,6 @@ class PermissionController extends Controller
      */
     public function destroy($id)
     {
-        Permission::find($id)->Delete();
-        return redirect()->back()->with('massage','Permsission Berhasil DiHapus');
+        //
     }
 }
