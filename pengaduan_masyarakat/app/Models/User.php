@@ -12,7 +12,7 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     public function pengaduan(){
-        return $this->belongsTo(Pengaduan::class);
+        return $this->hasMany(Pengaduan::class);
     }
 
     /**
