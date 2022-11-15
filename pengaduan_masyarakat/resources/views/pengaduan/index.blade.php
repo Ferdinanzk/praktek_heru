@@ -10,7 +10,7 @@
 
                 <div class="card-body">
                     <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="dataTable" width="50%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
@@ -46,7 +46,7 @@
                                 <td>{{$pengaduan->tgl_pengaduan}}</td>
                                 <!-- <td>{{$pengaduan->user_id}}</td> -->
                                 <td>{{$pengaduan->isi_laporan}}</td>
-                                <td><img src="{{asset('image')}}/{{$pengaduan->foto}}" width="100"></td>
+                                <td> <a href="{{asset('image')}}/{{$pengaduan->foto}}" target="_blank"> <img src="{{asset('image')}}/{{$pengaduan->foto}}" width="100"></a> </td>
                                 <td>{{$pengaduan->status}}</td>
                                 <td>
                                     <a href="{{route('pengaduan.edit',[$pengaduan->id])}}"><button
