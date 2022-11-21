@@ -22,6 +22,7 @@
                                 <th scope="col">Status</th>
                                 <th scope="col">Edit</th>
                                 <th scope="col">Delete</th>
+                                <th scope="col">View</th>
                             </tr>
                         </thead>
                         <tfoot>
@@ -35,6 +36,7 @@
                                 <th scope="col">Status</th>
                                 <th scope="col">Edit</th>
                                 <th scope="col">Delete</th>
+                                <th scope="col">View</th>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -90,6 +92,12 @@
                                         </div>
                                     </div>
                                 </td>
+                                <td>
+                                <p class="text-center">
+                                <a href="{{route('detail',[$pengaduan->id])}}">
+                                <button class="btn btn-outline-danger">View</button>
+                                </a>
+</td>
                             </tr>
                             @endforeach
                             @else
