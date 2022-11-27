@@ -4,17 +4,17 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+            @endif
             <form action="{{route('role.store')}}" method="post">
                 @csrf
             <div class="card">
                 <div class="card-header">Manage Role</div>
                 
                 <div class="card-body">
-                @if (session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
-                @endif
 
                    <div class="form-group">
                     <label for="name">Name</label>

@@ -47,9 +47,25 @@
                                 <td>{{$pengaduan->user->name}}</td>
                                 <td>{{$pengaduan->tgl_pengaduan}}</td>
                                 <!-- <td>{{$pengaduan->user_id}}</td> -->
-                                <td>{{$pengaduan->isi_laporan}}</td>
+                                <td>{{Str::limit($pengaduan->isi_laporan,50)}}</td>
                                 <td> <a href="{{asset('image')}}/{{$pengaduan->foto}}" target="_blank"> <img src="{{asset('image')}}/{{$pengaduan->foto}}" width="100"></a> </td>
-                                <td>{{$pengaduan->status}}</td>
+                                <td>
+                                         
+                                @if ($pengaduan->status == '0')
+                            <span class="px-3 bg-gradient-danger text-white">
+                                {{$pengaduan->status}}
+                            </span>
+                            @elseif ($pengaduan->status == 'Proses')
+                            <span class="px-3 bg-gradient-warning text-white">
+                                {{ $pengaduan->status}}
+                            </span>
+                            @else
+                            <span class="px-3 bg-gradient-success text-white">
+                                {{$pengaduan->status}}
+                            </span>
+                            @endif
+
+                                </td>
                                 <td>
                                     <a href="{{route('pengaduan.edit',[$pengaduan->id])}}"><button
                                             class="btn btn-outline-success">Edit</button></a>
@@ -57,7 +73,7 @@
 
                                 <td>
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-danger" data-toggle="modal"
+                                    <button type="button" class="btn btn-outline-danger" data-toggle="modal"
                                         data-target="#exampleModal{{$pengaduan->id}}">
                                         Delete
                                     </button>
@@ -95,9 +111,10 @@
                                 <td>
                                 <p class="text-center">
                                 <a href="{{route('detail',[$pengaduan->id])}}">
-                                <button class="btn btn-outline-danger">View</button>
+                                <button class="btn btn-outline-primary">View</button>
                                 </a>
-</td>
+
+                                </td>
                             </tr>
                             @endforeach
                             @else

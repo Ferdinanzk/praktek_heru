@@ -17,24 +17,53 @@ class="img-responsibe" width="70%">
 <div class="card">
 <div class="card-header">Detail pengaduan</div>
 <div class="card-body">
-
+@if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+ @endif
 <p>Nama : <b>{{$pengaduan->user->name}} </b> </p>
 <p>NIK : <b>{{$pengaduan->user->nik}} </b> </p>
 <p>Tanggal : <b>{{$pengaduan->tgl_pengaduan}} </b> </p>
 <p>Isi Laporan : <b>{{$pengaduan->isi_laporan}}</b> </p>
-<p> Status: <b>{{$pengaduan->status}}</b> </p>
+<p> Status: 
+
+                          @if ($pengaduan->status == '0')
+                            <span class="px-3 bg-gradient-danger text-white">
+                                {{$pengaduan->status}}
+                            </span>
+                            @elseif ($pengaduan->status == 'Proses')
+                            <span class="px-3 bg-gradient-warning text-white">
+                                {{ $pengaduan->status}}
+                            </span>
+                            @else
+                            <span class="px-3 bg-gradient-success text-white">
+                                {{$pengaduan->status}}
+                            </span>
+                            @endif
+
+
+</p>
 <p> Tanggapan :
-  @if (empty($pengaduan->tanggapan->tanggapan))
+  @if(empty($pengaduan->tanggapan->tanggapan))
   <b> Belum ada Tanggapan </b>
-  @else
+  @else 
   <b>{{ $pengaduan->tanggapan->tanggapan}}</b>
   @endif
 </p>
 <br>
 <br>
+@if(empty($pengaduan->tanggapan->tanggapan))
+<div class="form-group">
 <a href="{{route('tanggapan.show', [$pengaduan->id])}}">
 <button class="btn btn-outline-success">Beri Tanggapan</button></a>
-
+</div>
+@else
+<div class="form-group">
+<a href="{{route('tanggapan.edit', [$pengaduan->tanggapan->id])}}">
+<button class="btn btn-primary">Update Tanggapan</button></a>
+</div>
+@endif
 </div>
 </div>
 </div>

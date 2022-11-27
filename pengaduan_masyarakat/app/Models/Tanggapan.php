@@ -9,14 +9,17 @@ class Tanggapan extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    
+    protected $fillable=['user_id','pengaduan_id','tgl_tanggapan','tanggapan'];
 
     public function user(){
         return $this->belongsTo(User::class);
     }
 
     public function pengaduan(){
-        return $this->hasMany(Pengaduan::class);
+        return $this->belongsTo(Pengaduan::class);
     }
+    
 
 }
+

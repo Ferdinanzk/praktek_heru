@@ -15,8 +15,8 @@ class CreateTanggapansTable extends Migration
     {
         Schema::create('tanggapans', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBiginteger('id_pengaduan');
-            $table->foreign('id_pengaduan')->references('id')->on('pengaduans')->onDelete('cascade');
+            $table->unsignedBiginteger('pengaduan_id');
+            $table->foreign('pengaduan_id')->references('id')->on('pengaduans')->onDelete('cascade');
             $table->date('tgl_tanggapan');
             $table->text('tanggapan');
             $table->unsignedBiginteger('user_id');

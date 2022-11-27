@@ -22,9 +22,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/pengaduan {id}' ,[App\Http\Controllers\PengaduanController::class,'detailpengaduan'])->name('detail');
+Route::get('/pengaduan {id}' ,[App\Http\Controllers\PengaduanController::class,'detailpengaduan'])->name('detail')->middleware('auth');
+Route::get('/user/pengaduan', [App\Http\Controllers\PengaduanController::class, 'pengaduanUser'])->middleware('auth');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('/role',RoleController::class);
-Route::resource('/permiss',PermissionController::class);
-Route::resource('/pengaduan',PengaduanController::class);
-Route::resource('/tanggapan',TanggapanController::class);
+Route::resource('/role',RoleController::class)->middleware('auth');
+Route::resource('/permiss',PermissionController::class)->middleware('auth');
+Route::resource('/pengaduan',PengaduanController::class)->middleware('auth');
+Route::resource('/tanggapan',TanggapanController::class)->middleware('auth');
