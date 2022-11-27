@@ -25,6 +25,8 @@ Auth::routes();
 Route::get('/pengaduan {id}' ,[App\Http\Controllers\PengaduanController::class,'detailpengaduan'])->name('detail')->middleware('auth');
 Route::get('/user/pengaduan', [App\Http\Controllers\PengaduanController::class, 'pengaduanUser'])->middleware('auth');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/laporan ' , [App\Http\Controllers\PengaduanController::class, 'laporan'] )->name('laporan');
+Route::get('/laporan/cetak ' , [App\Http\Controllers\PengaduanController::class, 'pdf'] )->name('pdf');
 Route::resource('/role',RoleController::class)->middleware('auth');
 Route::resource('/permiss',PermissionController::class)->middleware('auth');
 Route::resource('/pengaduan',PengaduanController::class)->middleware('auth');

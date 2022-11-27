@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pengaduan;
 use Auth;
+use PDF;
 
 class PengaduanController extends Controller
 {
@@ -17,6 +18,19 @@ class PengaduanController extends Controller
     {
         $pengaduans = Pengaduan::get();
         return view('pengaduan.index',compact('pengaduans'));
+    }
+
+    public function laporan()
+    {
+        $pengaduans = Pengaduan::latest()->get();
+        return view('pengaduan.laporan',compact('pengaduans'));
+    }
+
+    public function pdf()
+    {
+        $pengaduans = Pengaduan::latest()->get();
+        $pdf = PDF::loadview('pengaduan.pdf', compact('pengaduans'));
+        return $pdf->download('laporan.pdf');
     }
 
     public function pengaduanUser()
