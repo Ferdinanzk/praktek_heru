@@ -8,8 +8,7 @@
 <div class="card-body p-0">
 <!-- Nested Row within Card Body -->
 <div class="row">
-<div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
-
+<img class="col-lg-6 d-none d-lg-block bg-login-image" src="https://cdn.pixabay.com/photo/2021/03/02/01/07/cyberpunk-6061251__480.jpg">
 <div class="col-lg-6">
 <div class="p-5">
 <div class="text-center">

@@ -8,9 +8,7 @@
 <!-- Nested Row within Card Body -->
 <div class="row">
 
-<div class="col-lg-5 d-none d-lg-block
-
-bg-register-image"></div>
+<img class="col-lg-5 d-none d-lg-block bg-register-image" src= "https://media.istockphoto.com/id/1405987908/photo/metaverse-cyberpunk-style-city-with-robots-walking-on-street-neon-lighting-on-building.jpg?b=1&s=170667a&w=0&k=20&c=7cPJuFZQ1IDJo7TPiOCny4rWAmEBpTOsEfXlaCT7XEo= ">
 
 <div class="col-lg-7">
 <div class="p-5">
